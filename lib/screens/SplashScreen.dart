@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:food_apps/constant.dart';
+import 'package:food_apps/screens/home_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -10,7 +12,7 @@ class SplashScreen extends StatelessWidget {
         padding: EdgeInsets.fromLTRB(40, 0, 40, 0),
         height: double.infinity,
         width: double.infinity,
-        color: Color.fromARGB(181, 0, 185, 62),
+        color: bgColor,
         child: Center(
           child: Container(
             height: MediaQuery.of(context).size.height / 2,
@@ -20,7 +22,7 @@ class SplashScreen extends StatelessWidget {
               children: [
                 CircleAvatar(
                     backgroundColor: Colors.white,
-                    backgroundImage: AssetImage('assets/images/food.webp'),
+                    backgroundImage: AssetImage('assets/images/splash.png'),
                     radius: 90),
                 Text(
                   "Food Ordering App",
@@ -37,7 +39,13 @@ class SplashScreen extends StatelessWidget {
                             Color.fromARGB(255, 221, 245, 231)),
                         shape: MaterialStateProperty.all(RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(50)))),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => HomeScreen(),
+                          ));
+                    },
                     child: Text('Get a Meal',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
